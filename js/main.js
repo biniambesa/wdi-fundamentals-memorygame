@@ -27,13 +27,24 @@ var checkForMatch = function(){
         alert("Sorry, try again.");
         }
 }
-var flipCard = function(cardId){
-    console.log("user fliped " + cards[cardId].rank + " of " + cards[cardId].suit)
-    cardsInPlay.push(cards[cardId]);
-    if (cardsInPlay.length >= 2){
-        checkForMatch();
-        cardsInPlay = [];
-    }
-    
-    
+
+var flipCard = function(){
+     var cardId = this.getAttribute('data-id');
+    console.log("user Fliped" + " " + cards[cardId].rank)
+    this.setAttribute('src', cards[cardId].image)
+   
 }
+
+var creatBoard = function(){
+    //console.log("new game, start or finish this one first")
+    for(var i = 0; i <cards.length; i++){
+      var cardElement = document.createElement('img');
+      cardElement.setAttribute('src',"images/back.png");
+      cardElement.setAttribute('data-id', i);
+      cardElement.addEventListener('click', flipCard);
+      document.getElementById('game-board').appendChild(cardElement);
+    }
+  }
+ 
+
+creatBoard();

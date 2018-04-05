@@ -4,8 +4,6 @@ Create cards within your memory game.
 Add an external CSS stylesheet.
 Add color to your memory cards.
  -->
-
-
  <!DOCTYPE html>
  <html>
  <head>
@@ -15,14 +13,16 @@ Add color to your memory cards.
    <link href="https://fonts.googleapis.com/css?family=Droid+Serif|Raleway:400,500,600,700" rel="stylesheet">
  </head>
  <body>
+   <div id="wrapper">
    <header>
      <h1>Memory Game</h1>
-     </header>
+   </header>
  
    <nav>
      <a href="#instuction">Instructions</a>
      <a href="#game">Game</a>
    </nav>
+    <div id="content" class="clearfix">
    <div id="instuction">
        <h2>Instructions</h2>
    <p>
@@ -30,16 +30,22 @@ Add color to your memory cards.
    </p>
  </div>
  
-   <div id="game">
+ <div id="game-board" class="boarder clearfix"></div>
+   <!-- <div id="game" class="border clearfix">
      <img src="images/back.png" alt="Queen of Diamonds">
      <img src="images/back.png" alt="Queen of Hearts">
      <img src="images/back.png" alt="King of Diamonds">
      <img src="images/back.png" alt="King of Hearts">
    </div>
- 
-   <footer class="clearfix">
+</div> -->
+  </div>
+   </div>
+  
+    <footer class="clearfix">
      <p class="copyright">Copyright 2017</p>
      <p class="message">Created with &hearts; by <span class="name">GA</span></p>
    </footer>
- </body>
+   <script src="js/main.js"></script>
+
+  </body>
  </html>
