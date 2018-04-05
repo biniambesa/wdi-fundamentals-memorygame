@@ -30,17 +30,20 @@ var checkForMatch = function(){
 
 var flipCard = function(){
      var cardId = this.getAttribute('data-id');
-    console.log("user Fliped" + " " + cards[cardId].rank)
-    this.setAttribute('src', cards[cardId].image)
-   
+    console.log("user Fliped" + " " + cards[cardId].rank);
+    this.setAttribute('src', cards[cardId].image);
+   cardsInPlay.push(cards[cardId]);
+   if (cardsInPlay.length > 1){checkForMatch()};
 }
 
 var creatBoard = function(){
     //console.log("new game, start or finish this one first")
+  
     for(var i = 0; i <cards.length; i++){
+      var ran = Math.random()*cards.length;
       var cardElement = document.createElement('img');
       cardElement.setAttribute('src',"images/back.png");
-      cardElement.setAttribute('data-id', i);
+      cardElement.setAttribute('data-id', Math.floor(ran));
       cardElement.addEventListener('click', flipCard);
       document.getElementById('game-board').appendChild(cardElement);
     }
